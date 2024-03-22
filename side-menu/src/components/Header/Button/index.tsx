@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import styles from "./style.module.scss";
 import { motion } from "framer-motion";
 
@@ -7,7 +7,7 @@ const index = ({
   setIsActive,
 }: {
   isActive: boolean;
-  setIsActive: (isActive: boolean) => null;
+  setIsActive: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
     <div onClick={() => setIsActive(!isActive)} className={styles.button}>
