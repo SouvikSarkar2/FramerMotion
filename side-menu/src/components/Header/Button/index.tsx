@@ -2,7 +2,13 @@ import React from "react";
 import styles from "./style.module.scss";
 import { motion } from "framer-motion";
 
-const index = ({ isActive, setIsActive }) => {
+const index = ({
+  isActive,
+  setIsActive,
+}: {
+  isActive: boolean;
+  setIsActive: (isActive: boolean) => null;
+}) => {
   return (
     <div onClick={() => setIsActive(!isActive)} className={styles.button}>
       <motion.div
@@ -11,14 +17,23 @@ const index = ({ isActive, setIsActive }) => {
         transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
       >
         <div className={styles.el}>
-          <p>Menu</p>
+          <PerspectiveText label="Menu" />
         </div>
         <div className={styles.el}>
-          <p>Close</p>
+          <PerspectiveText label="Close" />
         </div>
       </motion.div>
     </div>
   );
 };
+
+function PerspectiveText({ label }: { label: string }) {
+  return (
+    <div className={styles.perspectiveText}>
+      <p>{label}</p>
+      <p>{label}</p>
+    </div>
+  );
+}
 
 export default index;
